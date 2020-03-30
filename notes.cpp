@@ -1,6 +1,6 @@
 #include<iostream>
 #include<stdio.h>
-#include"struct.h"
+#include"notes.h"
 using namespace std;
 
 int WeekDayTransfer(int year, int month, int day)//Ê¹ÓÃ²ÌÀÕ¹«Ê½×ª»»ÈÕÆÚÓëĞÇÆÚ
@@ -128,6 +128,7 @@ int ImportFlightDatabase(FlightID* ID)//ÓÃÓÚÔÚ¿ªÍ·Ñ¯ÎÊÊÇ·ñÒªÒıÈëÏÖÓĞº½ÏßÊı¾İ¿â,º
 			fscanf_s(fp, "%d", &ID[FlightIDcount].TravelTimeHour);//¶ÁÈ¡·ÉĞĞÊ±¼ä
 			c=fgetc(fp);//¶ÁÈ¡Ã°ºÅ
 			fscanf_s(fp, "%2d", &ID[FlightIDcount].TravelTimeMinute);
+			ID[FlightIDcount].Price = ID[FlightIDcount].TravelTimeHour * 675 + ID[FlightIDcount].TravelTimeMinute * 11.25;
 			FlightIDcount++;
 			if ((c = fgetc(fp)) == EOF)break;
 		}
@@ -147,7 +148,7 @@ void PrintFlightTitle()//´òÓ¡±êÌâÀ¸
 	return;
 }
 
-void PrintFlight(FlightID* ID, int n,int i)//´«ÈëÊı×é£¬±àºÅ
+void PrintFlight(FlightID* ID, int n,int i)//´«ÈëÊı×é£¬Êı×éÏÂ±ê£¬ĞòºÅ
 {
 	printf("%d\t%s%s\t\t%04d\t\t%s\t\t%s\t\t%04d\t\t%dĞ¡Ê±%02d·ÖÖÓ\t%s\n",i,ID[n].Carrier,ID[n].ID, ID[n].DepartureTime, ID[n].DepartureAirport, ID[n].ArrivalAirport, ID[n].ArrivalTime, ID[n].TravelTimeHour, ID[n].TravelTimeMinute, ID[n].AircraftType);
 	return;
@@ -159,6 +160,11 @@ void PrintFlightTicket()
 }
 
 int SearchFlightID(int search)//²éÕÒº½°àºÅ£¬·µ»Ø²éÑ¯µ½¸öÊı
+{
+	return 0;
+}
+
+int JudgeAircraftSize(FlightID* ID, int n)//ÅĞ¶Ï·É»úÊÇĞ¡·É»ú»¹ÊÇ´ó·É»ú£¬Ğ¡·É»ú·µ»Ø1£¬´ó·É»ú·µ»Ø2
 {
 	return 0;
 }

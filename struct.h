@@ -13,27 +13,14 @@ typedef struct FlightID //用于表示航班号，航班号只代表航班基本信息。
 	int ArrivalTime = 2500;					//到达时刻，四字码。eg 1230（12时30分）
 	int TravelTimeHour = 0;//飞行时间(时)
 	int TravelTimeMinute = 0;//飞行时间(分)
+	int Price = 0;
 	char AircraftType[4] = { 'X','X' ,'X' };					//飞机型号，三字码。eg 787，350
 	char Class[4] = { 'X','X' ,'X' ,'X' };							//舱位，两舱或三舱，注意结尾的\0。
 }FlightID;
 
-typedef struct Date
-{
-	int year;
-	int month;
-	int day;
-}Date;
-
 typedef struct FlightTicket //每日机票情况
 {
-	int ID;//填数组下标(航班号不唯一）
-	Date day;
-	int FirstClassTicketRemain = 0;
-	int BusinessClassTicketRemain = 0;
-	int EconomyClassTicketRemain = 0;
-	int FirstClassTicketPrice = -100;
-	int BusinessClassTicketPrice = -100;
-	int EconomyClassTicketPrice = -100;
+	int Seat[50][10];
 	int ActuralDepartureTime = 2500;
 	int ActuralArrivalTime = 2500;
 }FlightTicket;
