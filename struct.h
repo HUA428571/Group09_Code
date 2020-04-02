@@ -20,7 +20,10 @@ typedef struct FlightID //用于表示航班号，航班号只代表航班基本信息。
 
 typedef struct FlightTicket //每日机票情况
 {
-	int Seat[50][10];
+	int Seat[50][10] = { 0 };
+	int FirstClassTicketRemain = 0;
+	int BusinessClassTicketRemain = 0;
+	int EconomyClassTicketRemain = 0;
 	int ActuralDepartureTime = 2500;
 	int ActuralArrivalTime = 2500;
 }FlightTicket;

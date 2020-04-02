@@ -1,5 +1,6 @@
 #include <iostream>
 #include<stdio.h>
+#include<string.h>
 using namespace std;
 //原结构体，出发和到达时间均为字符数组
 //typedef struct FlightID //用于表示航班号，航班号只代表航班基本信息。
@@ -80,14 +81,32 @@ typedef struct FlightID //用于表示航班号，航班号只代表航班基本信息。
 
 typedef struct FlightTicket //每日机票情况
 {
-    int Seat[50][10];
+    int Seat[50][10] = { 0 };
+    int FirstClassTicketRemain = 0;
+    int BusinessClassTicketRemain = 0;
+    int EconomyClassTicketRemain = 0;
     int ActuralDepartureTime = 2500;
     int ActuralArrivalTime = 2500;
-}FlightTicket;
+}FlightTicket; 
 #endif // !struct
 
 
-int WeekDayTransfer(int year, int month, int day);
+int WeekDayTransfer(int, int, int);//使用蔡勒公式转换日期与星期
+int DateTransfer(int, int, int);//返回日期对应天数
+int JudgeAircraftSize(FlightID*, int);//判断飞机是小飞机还是大飞机，小飞机返回1，大飞机返回2
 int ImportFlightDatabase(FlightID*);
-void PrintFlight(FlightID* ,int n,int i);
 void PrintFlightTitle();//打印标题栏
+void PrintFlight(FlightID*, int, int);
+int SearchFlightID(FlightID*, char*, int, int*, int&);//查找航班号，返回查找到航班个数
+int SearchFlightDepartureAirport(FlightID*, char*, int, int*, int&);//查找航起飞地，返回查找到航班个数
+int SearchFlightArrivalAirport(FlightID*, char*, int, int*, int&);//查找航起飞地，返回查找到航班个数
+int PrintSearch(FlightID*, int, int*, int&);//展示查询的结果
+int NewFlight(FlightID*, int&);//创建新航线
+int SortByDepartureTime(FlightID*, int, int*);//按照起飞时间排序
+int SaveFlightDatabase(FlightID*, int);
+
+
+
+
+
+
