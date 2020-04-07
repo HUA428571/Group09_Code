@@ -12,7 +12,7 @@ public:
 	int flynumber[999];
 };
 static  bookiinginformation custom;
-int JudgeAircraftSize(FlightID* ID, int n)//ÅĞ¶Ï·É»úÊÇĞ¡·É»ú»¹ÊÇ´ó·É»ú£¬Ğ¡·É»ú·µ»Ø1£¬´ó·É»ú·µ»Ø2
+int JudgeAircraftSize(FlightID* ID, int n)//åˆ¤æ–­é£æœºæ˜¯å°é£æœºè¿˜æ˜¯å¤§é£æœºï¼Œå°é£æœºè¿”å›1ï¼Œå¤§é£æœºè¿”å›2
 {
 	if (strcmp(ID[n].AircraftType, "319") && strcmp(ID[n].AircraftType, "320") \
 		&& strcmp(ID[n].AircraftType, "321") && strcmp(ID[n].AircraftType, "737") && strcmp(ID[n].AircraftType, "738"))
@@ -27,7 +27,7 @@ int JudgeAircraftSizeSeat(int n)
 	else 
 		return 448;
 }
-int FirstClassTicketRemain(FlightTicket* DATA, int daycount, int i,int judge)//Í·µÈ²Õ¶©Æ±ÈËÊı
+int FirstClassTicketRemain(FlightTicket* DATA, int daycount, int i,int judge)//å¤´ç­‰èˆ±è®¢ç¥¨äººæ•°
 {
 	int m, n,f_count = 0;
 	if (judge == 1)
@@ -36,8 +36,8 @@ int FirstClassTicketRemain(FlightTicket* DATA, int daycount, int i,int judge)//Í
 		{
 			for (n = 0; n < 2; n++)
 			{
-				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//ÅĞ¶ÏÊÇ·ñÂú×ù
-					f_count++;//ÓĞ×ùÈËÊı
+				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//åˆ¤æ–­æ˜¯å¦æ»¡åº§
+					f_count++;//æœ‰åº§äººæ•°
 			}
 		}
 	}
@@ -47,27 +47,27 @@ int FirstClassTicketRemain(FlightTicket* DATA, int daycount, int i,int judge)//Í
 		{
 			for (n = 0; n < 3; n++)
 			{
-				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//ÅĞ¶ÏÊÇ·ñÂú×ù
-					f_count++;//ÓĞ×ùÈËÊı
+				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//åˆ¤æ–­æ˜¯å¦æ»¡åº§
+					f_count++;//æœ‰åº§äººæ•°
 			}
 		}
 	}
 	return f_count;
 }
-int BusinessClassTicketRemain(FlightTicket* DATA, int daycount, int i)//ÉÌÎñ²ÕÈËÊı
+int BusinessClassTicketRemain(FlightTicket* DATA, int daycount, int i)//å•†åŠ¡èˆ±äººæ•°
 {
         int m, n, b_count = 0;
 		for (m = 0; m < 6; m++)
 		{
 			for (n = 0; n < 6; n++)
 			{
-				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//ÅĞ¶ÏÊÇ·ñÂú×ù
-					b_count++;//ÓĞ×ùÈËÊı
+				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//åˆ¤æ–­æ˜¯å¦æ»¡åº§
+					b_count++;//æœ‰åº§äººæ•°
 			}
 		}
 		return b_count;
 }
-int EconomyClassTicketRemain(FlightTicket* DATA, int daycount, int i, int judge)//¾­¼Ã²Õ¶©Æ±ÈËÊı
+int EconomyClassTicketRemain(FlightTicket* DATA, int daycount, int i, int judge)//ç»æµèˆ±è®¢ç¥¨äººæ•°
 {
 	int m, n,e_count = 0;
 	if (judge == 1)
@@ -76,8 +76,8 @@ int EconomyClassTicketRemain(FlightTicket* DATA, int daycount, int i, int judge)
 		{
 			for (n = 0; n < 30; n++)
 			{
-				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//ÅĞ¶ÏÊÇ·ñÂú×ù
-					e_count++;//ÓĞ×ùÈËÊı
+				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//åˆ¤æ–­æ˜¯å¦æ»¡åº§
+					e_count++;//æœ‰åº§äººæ•°
 			}
 		}
 	}
@@ -87,8 +87,8 @@ int EconomyClassTicketRemain(FlightTicket* DATA, int daycount, int i, int judge)
 		{
 			for (n = 0; n < 40; n++)
 			{
-				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//ÅĞ¶ÏÊÇ·ñÂú×ù
-					e_count++;//ÓĞ×ùÈËÊı
+				if (DATA[(daycount - 2) * 999 + i].Seat[m][n] != 0)//åˆ¤æ–­æ˜¯å¦æ»¡åº§
+					e_count++;//æœ‰åº§äººæ•°
 			}
 		}
 	}
@@ -101,9 +101,9 @@ int Searching(FlightID* ID, FlightTicket *DATA,int daycount)
 	for (i = 0; i < 999; i++)
 	{
 		if ((strcmp(ID[i].ArrivalAirport, custom.destination) == 0)\
-			&& (strcmp(ID[i].DepartureAirport, custom.departure) == 0) && (ID[i].FlyDay[custom.flyday] == '1'))//¸ù¾İÊ±¼äÆğÊ¼µØÅĞ¶ÏID
+			&& (strcmp(ID[i].DepartureAirport, custom.departure) == 0) && (ID[i].FlyDay[custom.flyday] == '1'))//æ ¹æ®æ—¶é—´èµ·å§‹åœ°åˆ¤æ–­ID
 		{
-			 a= JudgeAircraftSizeSeat(JudgeAircraftSize(ID,i));//ÕıÔÚÉ¸Ñ¡µÄº½ÏßµÄ·É»ú×Ü×ùÎ»Êı
+			 a= JudgeAircraftSizeSeat(JudgeAircraftSize(ID,i));//æ­£åœ¨ç­›é€‰çš„èˆªçº¿çš„é£æœºæ€»åº§ä½æ•°
 			 if (JudgeAircraftSize(ID, i) == 1)
 			 {
 				 f = FirstClassTicketRemain(DATA, daycount, i, 1);
@@ -119,10 +119,10 @@ int Searching(FlightID* ID, FlightTicket *DATA,int daycount)
 			 }
 			if (r>0)
 			{
-				count++;//·ûºÏÌõ¼şµÄ·É»úÊı
+				count++;//ç¬¦åˆæ¡ä»¶çš„é£æœºæ•°
 				for (j = 0; j < count; j++)
 				{
-					custom.flynumber[j] = i;//É¸Ñ¡ºó·ûºÏÒªÇóµÄIDºÅ¼¯ºÏ
+					custom.flynumber[j] = i;//ç­›é€‰åç¬¦åˆè¦æ±‚çš„IDå·é›†åˆ
 					DATA[(daycount - 2) * 999 + i].FirstClassTicketRemain = f;
 					DATA[(daycount - 2) * 999 + i].EconomyClassTicketRemain = e;
 					if(JudgeAircraftSize(ID, i) == 2)
@@ -132,14 +132,14 @@ int Searching(FlightID* ID, FlightTicket *DATA,int daycount)
 			}
 		}
 	}
-	return j;//·µ»ØIDÊı×éÄÚ·ûºÏÒªÇóµÄ·É»ú×ÜÊı
+	return j;//è¿”å›IDæ•°ç»„å†…ç¬¦åˆè¦æ±‚çš„é£æœºæ€»æ•°
 }
-int WeekDayTransfer(int year, int month, int day)//Ê¹ÓÃ²ÌÀÕ¹«Ê½×ª»»ÈÕÆÚÓëĞÇÆÚ
+int WeekDayTransfer(int year, int month, int day)//ä½¿ç”¨è”¡å‹’å…¬å¼è½¬æ¢æ—¥æœŸä¸æ˜ŸæœŸ
 {
 	int week = 0;
-	int century = year / 100;//×¢ÒâÕâ±ßÊµ¼ÊÉÏÊÇÄê·İµÄÇ°Á½Î»£¬²»ÊÇÊÀ¼ÍÊı
-	year = year % 100;//Äê·İµÄºóÁ½Î»
-	if (month == 1 || month == 2)//ÔÂ·İµÄ·¶Î§Îª3-14£¬ËùÒÔ1ÔÂ2ÔÂ±ä³ÉÁË13ÔÂ14ÔÂ
+	int century = year / 100;//æ³¨æ„è¿™è¾¹å®é™…ä¸Šæ˜¯å¹´ä»½çš„å‰ä¸¤ä½ï¼Œä¸æ˜¯ä¸–çºªæ•°
+	year = year % 100;//å¹´ä»½çš„åä¸¤ä½
+	if (month == 1 || month == 2)//æœˆä»½çš„èŒƒå›´ä¸º3-14ï¼Œæ‰€ä»¥1æœˆ2æœˆå˜æˆäº†13æœˆ14æœˆ
 	{
 		month += 12;
 		year--;
@@ -149,7 +149,7 @@ int WeekDayTransfer(int year, int month, int day)//Ê¹ÓÃ²ÌÀÕ¹«Ê½×ª»»ÈÕÆÚÓëĞÇÆÚ
 	return (week >= 0) ? week : (7 + week);
 }
 
-int DateTransfer(int year, int month, int day)//·µ»ØÈÕÆÚ¶ÔÓ¦ÌìÊı
+int DateTransfer(int year, int month, int day)//è¿”å›æ—¥æœŸå¯¹åº”å¤©æ•°
 {
 	int daycount = 0;
 	if (year % 4 == 0 && year % 100 != 0)
@@ -185,14 +185,14 @@ int DateTransfer(int year, int month, int day)//·µ»ØÈÕÆÚ¶ÔÓ¦ÌìÊı
 }
 void PrintFlightTitle()
 {
-	printf("±àºÅ\tº½°àºÅ\t\tÆğ·ÉÊ±¼ä\tÆğ·É»ú³¡\tµ½´ï»ú³¡\tµ½´ïÊ±¼ä\t·ÉĞĞÊ±¼ä\tÖ´·É»úĞÍ\t¾­¼Ã²Õ¼Û¸ñ\tÊ£Óà×ùÎ»Êı\n");
+	printf("ç¼–å·\tèˆªç­å·\t\tèµ·é£æ—¶é—´\tèµ·é£æœºåœº\tåˆ°è¾¾æœºåœº\tåˆ°è¾¾æ—¶é—´\té£è¡Œæ—¶é—´\tæ‰§é£æœºå‹\tç»æµèˆ±ä»·æ ¼\tå‰©ä½™åº§ä½æ•°\n");
 	return;
 }
-int hour(int x)//¶Ô·ÉĞĞÊ±¼äµÄ·Ö¶Î
+int hour(int x)//å¯¹é£è¡Œæ—¶é—´çš„åˆ†æ®µ
 {
 	return (x / 100);
 }
-int minut(int x)//¶Ô·ÉĞĞÊ±¼äµÄ·Ö¶Î
+int minut(int x)//å¯¹é£è¡Œæ—¶é—´çš„åˆ†æ®µ
 {
 	return (x-100*(x / 100));
 }
@@ -212,7 +212,7 @@ int seattranslate(char seat[3],int n)
 	case 'J':return 9; break;
 	}
 }
-void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int size)//nÊÇDATAµÄÊı×éĞòºÅ£¬accountÎªÓÃ»§ÕËºÅ,sizeÊÇ·É»úĞÍºÅÅĞ¶Ï½á¹û
+void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int size)//næ˜¯DATAçš„æ•°ç»„åºå·ï¼Œaccountä¸ºç”¨æˆ·è´¦å·,sizeæ˜¯é£æœºå‹å·åˆ¤æ–­ç»“æœ
 {
 	int p_num,i,a,b,c= 0;
 	for (i = 0; i < 3; i++)
@@ -220,14 +220,14 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 		if (seat[i] != '/0')
 			p_num++;
 	}
-	if (size == 1)//Ğ¡·É»ú¶©Æ±
+	if (size == 1)//å°é£æœºè®¢ç¥¨
 	{
-		if (p_num == 1)//µ¥ÈË
+		if (p_num == 1)//å•äºº
 		{
 			if (Class = 'f')
 			{
 				if (p_num > DATA[n].FirstClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				for (a = 0; a < 2; a++)
 				{
@@ -235,16 +235,16 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 					{
 						DATA[n].Seat[a][b] = account;
 						DATA[n].FirstClassTicketRemain--;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << "åº§" << endl;
 						break;
 					}
 
 				}
 			}
-			else//¾­¼Ã²Õ
+			else//ç»æµèˆ±
 			{
 				if (p_num > DATA[n].EconomyClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				for (a = 2; a < 32; a++)
 				{
@@ -252,18 +252,18 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 					{
 						DATA[n].Seat[a][b] = account;
 						DATA[n].EconomyClassTicketRemain--;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << "åº§" << endl;
 						break;
 					}
 				}
 			}
 		}
-		else//Ë«ÈË
+		else//åŒäºº
 		{
 			if (Class = 'f')
 			{
 				if (p_num > DATA[n].FirstClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				c= seattranslate(seat, 1);
 				for (a = 0; a < 2; a++)
@@ -273,20 +273,20 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 						DATA[n].Seat[a][b] = account;
 						DATA[n].Seat[a][c] = account;
 						DATA[n].FirstClassTicketRemain= DATA[n].FirstClassTicketRemain-2;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0]<< seat[1] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0]<< seat[1] << "åº§" << endl;
 						break;
 					}
 					else
 					{
-						cout << "¶Ô²»Æğ£¬ÒÑÎŞ²¢ÅÅÎ»ÖÃ£¬ÇëÖØĞÂ¶©Æ±";
+						cout << "å¯¹ä¸èµ·ï¼Œå·²æ— å¹¶æ’ä½ç½®ï¼Œè¯·é‡æ–°è®¢ç¥¨";
 						braek;
 					}
 				}
 			}
-			else//Ë«ÈË¾­¼Ã²Õ
+			else//åŒäººç»æµèˆ±
 			{
 				if (p_num > DATA[n].EconomyClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				for (a = 2; a < 32; a++)
 				{
@@ -295,21 +295,21 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 						DATA[n].Seat[a][b] = account;
 						DATA[n].Seat[a][c] = account;
 						DATA[n].FirstClassTicketRemain = DATA[n].EconomyClassTicketRemain - 2;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << seat[1] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << seat[1] << "åº§" << endl;
 						break;
 					}
 				}
 			}
 		}
 	}
-	else//´ó·É»ú¶©Æ±
+	else//å¤§é£æœºè®¢ç¥¨
 	{
 		if (p_num == 1)
 		{
 			if (Class = 'f')
 			{
 				if (p_num > DATA[n].FirstClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				for (a = 0; a < 3; a++)
 				{
@@ -317,7 +317,7 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 					{
 						DATA[n].Seat[a][b] = account;
 						DATA[n].FirstClassTicketRemain--;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << "åº§" << endl;
 						break;
 					}
 
@@ -326,7 +326,7 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 			else if (Class = 'b')
 			{
 				if (p_num > DATA[n].BusinessClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				for (a = 3; a < 9; a++)
 				{
@@ -334,15 +334,15 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 					{
 						DATA[n].Seat[a][b] = account;
 						DATA[n].BusinessClassTicketRemain--;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << "åº§" << endl;
 						break;
 					}
 				}
 			}
-			else//¾­¼Ã²Õ¶©Æ±
+			else//ç»æµèˆ±è®¢ç¥¨
 			{
 				if (p_num > DATA[n].EconomyClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				for (a = 9; a < 49; a++)
 				{
@@ -350,18 +350,18 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 					{
 						DATA[n].Seat[a][b] = account;
 						DATA[n].EconomyClassTicketRemain--;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << "åº§" << endl;
 						break;
 					}
 				}
 			}
 		}
-		else//Ë«ÈË
+		else//åŒäºº
 		{
 			if (Class = 'f')
 			{
 				if (p_num > DATA[n].FirstClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				c = seattranslate(seat, 1);
 				for (a = 0; a < 3; a++)
@@ -371,20 +371,20 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 						DATA[n].Seat[a][b] = account;
 						DATA[n].Seat[a][c] = account;
 						DATA[n].FirstClassTicketRemain = DATA[n].FirstClassTicketRemain - 2;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << seat[1] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << seat[1] << "åº§" << endl;
 						break;
 					}
 					else
 					{
-						cout << "¶Ô²»Æğ£¬ÒÑÎŞ²¢ÅÅÎ»ÖÃ£¬ÇëÖØĞÂ¶©Æ±";
-						braek;
+						cout << "å¯¹ä¸èµ·ï¼Œå·²æ— å¹¶æ’ä½ç½®ï¼Œè¯·é‡æ–°è®¢ç¥¨";
+						break;
 					}
 				}
 			}
 			else if (Class = 'b')
 			{
 				if (p_num > DATA[n].BusinessClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				c = seattranslate(seat, 1);
 				for (a = 3; a < 9; a++)
@@ -394,20 +394,20 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 						DATA[n].Seat[a][b] = account;
 						DATA[n].Seat[a][c] = account;
 						DATA[n].BusinessClassTicketRemain= DATA[n].BusinessClassTicketRemain-2;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << seat[1] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << seat[1] << "åº§" << endl;
 						break;
 					}
 					else
 					{
-						cout << "¶Ô²»Æğ£¬ÒÑÎŞ²¢ÅÅÎ»ÖÃ£¬ÇëÖØĞÂ¶©Æ±";
-						braek;
+						cout << "å¯¹ä¸èµ·ï¼Œå·²æ— å¹¶æ’ä½ç½®ï¼Œè¯·é‡æ–°è®¢ç¥¨";
+						break;
 					}
 				}
 			}
-			else//Ë«ÈË¾­¼Ã²Õ
+			else//åŒäººç»æµèˆ±
 			{
 				if (p_num > DATA[n].EconomyClassTicketRemain)
-					cout << "¶Ô²»Æğ£¬ÄúµÄ¶©Æ±ĞÅÏ¢ÓĞÎó" << endl;
+					cout << "å¯¹ä¸èµ·ï¼Œæ‚¨çš„è®¢ç¥¨ä¿¡æ¯æœ‰è¯¯" << endl;
 				b = seattranslate(seat, 0);
 				c = seattranslate(seat, 1);
 				for (a = 9; a < 50; a++)
@@ -417,13 +417,13 @@ void Booking(FlightTicket* DATA,int n,char Class,char seat[3],int account,int si
 						DATA[n].Seat[a][b] = account;
 						DATA[n].Seat[a][c] = account;
 						DATA[n].EconomyClassTicketRemain = DATA[n].EconomyClassTicketRemain - 2;
-						cout << "ÄúµÄ×ùÎ»Î»ÓÚ" << a + 1 << "ÅÅ£¬" << seat[0] << seat[1] << "×ù" << endl;
+						cout << "æ‚¨çš„åº§ä½ä½äº" << a + 1 << "æ’ï¼Œ" << seat[0] << seat[1] << "åº§" << endl;
 						break;
 					}
 					else
 					{
-						cout << "¶Ô²»Æğ£¬ÒÑÎŞ²¢ÅÅÎ»ÖÃ£¬ÇëÖØĞÂ¶©Æ±";
-						braek;
+						cout << "å¯¹ä¸èµ·ï¼Œå·²æ— å¹¶æ’ä½ç½®ï¼Œè¯·é‡æ–°è®¢ç¥¨";
+						break;
 					}
 
 				}
@@ -451,17 +451,17 @@ void Refunding(FlightTicket* DATA, int n, char seat[3], int account,char Class)
 				if (Class = 'f')
 				{
 					DATA[n].FirstClassTicketRemain++;
-					cout << "ÄúÒÑ³É¹¦ÍËÆ±" << endl;
+					cout << "æ‚¨å·²æˆåŠŸé€€ç¥¨" << endl;
 				}
 				else if (Class = 'b')
 				{
 					DATA[n].BusinessClassTicketRemain++;
-					cout << "ÄúÒÑ³É¹¦ÍËÆ±" << endl;
+					cout << "æ‚¨å·²æˆåŠŸé€€ç¥¨" << endl;
 				}
 				else
 				{
 					DATA[n].EconomyClassTicketRemain++;
-					cout << "ÄúÒÑ³É¹¦ÍËÆ±" << endl;
+					cout << "æ‚¨å·²æˆåŠŸé€€ç¥¨" << endl;
 				}
 			}
 		}
@@ -479,17 +479,17 @@ void Refunding(FlightTicket* DATA, int n, char seat[3], int account,char Class)
 				if (Class = 'f')
 				{
 					DATA[n].FirstClassTicketRemain= DATA[n].FirstClassTicketRemain+2;
-					cout << "ÄúÒÑ³É¹¦ÍËÆ±" << endl;
+					cout << "æ‚¨å·²æˆåŠŸé€€ç¥¨" << endl;
 				}
 				else if (Class = 'b')
 				{
 					DATA[n].BusinessClassTicketRemain= DATA[n].BusinessClassTicketRemain+2;
-					cout << "ÄúÒÑ³É¹¦ÍËÆ±" << endl;
+					cout << "æ‚¨å·²æˆåŠŸé€€ç¥¨" << endl;
 				}
 				else
 				{
 					DATA[n].EconomyClassTicketRemain= DATA[n].EconomyClassTicketRemain+2;
-					cout << "ÄúÒÑ³É¹¦ÍËÆ±" << endl;
+					cout << "æ‚¨å·²æˆåŠŸé€€ç¥¨" << endl;
 				}
 			}
 		}
